@@ -11,7 +11,7 @@ public class PlayerStatus
         int max_amount;
         int bullet;
         int clip;
-        bool isReload = false;
+        bool isReload;
     }
 
     public Weapon[] weapon;
