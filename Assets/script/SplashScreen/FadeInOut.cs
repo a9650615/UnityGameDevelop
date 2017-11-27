@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-namespace Assets.script.SplashScreen {
+namespace Game.SplashScreen {
    
 	public class FadeInOut : MonoBehaviour
 	{

@@ -72,6 +72,6 @@ public class PlayerControl : MonoBehaviour {
         Vector2 screenCenter;
         screenCenter.x = Screen.width / 2;
         screenCenter.y = Screen.height / 2;
-        Debug.Log(GetDirection(GetAngle(screenCenter, (Vector2)Input.mousePosition)));
+        //Debug.Log(GetDirection(GetAngle(screenCenter, (Vector2)Input.mousePosition)));
     }
 }

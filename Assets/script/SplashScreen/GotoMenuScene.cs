@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
-using Assets.script.SplashScreen;
-using Assets.script;
+using Game.SplashScreen;
+using Game.Setting;
 
 
 public class GotoMenuScene : MonoBehaviour
