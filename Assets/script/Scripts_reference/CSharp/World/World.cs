@@ -3,7 +3,7 @@ using System.Collections;
 
 public class World : MonoBehaviour {
 
-	internal SoundManager sound ;
+    internal SoundManager sound ;
 	internal MainUI ui ;
 	internal DialogUI dialog ;
 

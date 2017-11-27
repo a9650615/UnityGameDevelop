@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/scene_reference/SplashScreen.unity
+    path: Assets/scene/SplashScreen.unity
     guid: b78abca3383814537bda7d37104e26e4
   - enabled: 1
-    path: Assets/Title.unity
+    path: Assets/scene/Title.unity
     guid: 5ce5846a54e64664aab87151914251af
   - enabled: 1
     path: Assets/scene_reference/Map.unity
@@ -20,3 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/scene/Start.unity
     guid: acd280798b0436447adfa1e73e63fdc0
+  - enabled: 1
+    path: Assets/scene/TestGame.unity
+    guid: cf61e200349454144a1227cd0e9daf4d

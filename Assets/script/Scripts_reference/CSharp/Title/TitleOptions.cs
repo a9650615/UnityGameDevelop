@@ -1,18 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.script;
+using Assets.script.SplashScreen;
 
 public class TitleOptions : MonoBehaviour {
 
 	public Transform hand ;
 	public Transform[] buttons ;
 	public float[] xOffset ;
-	public World world ;
-	public AudioClip moveSound ;
-	public AudioClip okSound ;
+    public AudioClip moveSound ;
+    public AudioClip okSound ;
+    public AudioSource se; // SE元件
+    public FadeInOut _fadeInOut;
+    //public World _world ;
 	int id = 0 ;
 
 	void Start () {
-		world = FindObjectOfType<World>() ;
+        _fadeInOut = FindObjectOfType<FadeInOut>();
+        //_world = FindObjectOfType<World>() ;
+        //_soundManager = FindObjectOfType<SoundManager>();
 		id = 1 ;
 		UpdatePosition() ;
 	}
@@ -22,13 +28,15 @@ public class TitleOptions : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.UpArrow)){
 			id -- ;
 			id = Mathf.Clamp(id,0 ,2) ;
-			world.sound.PlaySE(moveSound) ;
+            //_soundManager.PlaySE(moveSound) ;
+            se.PlayOneShot(moveSound);
 			UpdatePosition() ;
 		}
 		if(Input.GetKeyDown(KeyCode.DownArrow)){
 			id ++ ;
 			id = Mathf.Clamp(id,0 ,2) ;
-			world.sound.PlaySE(moveSound) ;
+            //_soundManager.PlaySE(moveSound) ;
+            se.PlayOneShot(moveSound);
 			UpdatePosition() ;
 		}
         //確定
@@ -39,7 +47,11 @@ public class TitleOptions : MonoBehaviour {
             {
                 // new
                 case 0:
-                    Game.screen().FadeAndGo("Map");
+                    //Game.screen().FadeAndGo("Map");
+                    if (_fadeInOut)
+                        _fadeInOut.FadeAndGo(Setting.Scene.Game);
+                    else
+                        Debug.Log("Warring: Nothing be loaded!!");
                     this.enabled = false;
                     break;
                 // load
@@ -50,7 +62,7 @@ public class TitleOptions : MonoBehaviour {
                     Application.Quit();
                     break;
             }
-            world.sound.PlaySE(okSound);
+            se.PlayOneShot(okSound);
         }
 
     }
