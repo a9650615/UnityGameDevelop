@@ -49,7 +49,7 @@ public class TitleOptions : MonoBehaviour {
                 case 0:
                     //Game.screen().FadeAndGo("Map");
                     if (_fadeInOut)
-                        _fadeInOut.FadeAndGo(Setting.Scene.Game);
+                        _fadeInOut.FadeAndGo(Setting.Scene.GameLoader);
                     else
                         Debug.Log("Warring: Nothing be loaded!!");
                     this.enabled = false;

@@ -13,6 +13,7 @@ namespace Game.Setting
         {
             public const string Start = "Assets/scene/Start.unity";
             public const string Title = "Assets/scene/Title.unity";
+            public const string GameLoader = "Assets/scene/GameLoaderScene.unity";
             public const string Game = "Assets/scene/TestGame.unity";
         }
     }
