@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/scene/Title.unity
     guid: 5ce5846a54e64664aab87151914251af
-  - enabled: 1
+  - enabled: 0
     path: Assets/scene_reference/Map.unity
     guid: a33d46fa2b9d44f1997abeac4ca85ff7
   - enabled: 1
@@ -23,3 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/scene/TestGame.unity
     guid: cf61e200349454144a1227cd0e9daf4d
+  - enabled: 1
+    path: Assets/scene/GameLoaderScene.unity
+    guid: 05e05a172e147429c9741db81849800d
