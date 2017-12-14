@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game;
 
 public class PlayerControl : MonoBehaviour 
 {
@@ -83,6 +84,8 @@ public class PlayerControl : MonoBehaviour
         CheckIsClick();
         MoveCheck();
         CameraMove();
+
+        GameCore.GetSystem<EventDetect>().Update();
     }
 
     void CheckIsClick()
