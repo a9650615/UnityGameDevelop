@@ -27,43 +27,43 @@ public class PlayerControl : MonoBehaviour
         return (b.x < 0 ? -angle : angle);
     }
 
-    public string GetDirection(double angle)
-    {
-        if (angle > -22.5 && angle < 22.5) //down
-        {
-            return "down";
-        }
-        else if (angle >22.5 && angle <67.5)
-        {
-            return "right-down";
-        }
-        else if (angle > 67.5 && angle < 112.5)
-        {
-            return "right";
-        }
-        else if (angle > 112.5 && angle < 157.5)
-        {
-            return "right-up";
-        }
-        else if (angle < -22.5 && angle > -67.5)
-        {
-            return "left-down";
-        }
-        else if (angle < -67.5 && angle > -112.5)
-        {
-            return "left";
-        }
-        else if (angle < -112.5 && angle > -157.5)
-        {
-            return "left-up";
-        }
-        else if ((angle < -157.5 && angle > -180) || (angle >157.5 && angle < 180)) 
-        {
-            return "up";
-        }
+    //public string GetDirection(double angle)
+    //{
+    //    if (angle > -22.5 && angle < 22.5) //down
+    //    {
+    //        return "down";
+    //    }
+    //    else if (angle >22.5 && angle <67.5)
+    //    {
+    //        return "right-down";
+    //    }
+    //    else if (angle > 67.5 && angle < 112.5)
+    //    {
+    //        return "right";
+    //    }
+    //    else if (angle > 112.5 && angle < 157.5)
+    //    {
+    //        return "right-up";
+    //    }
+    //    else if (angle < -22.5 && angle > -67.5)
+    //    {
+    //        return "left-down";
+    //    }
+    //    else if (angle < -67.5 && angle > -112.5)
+    //    {
+    //        return "left";
+    //    }
+    //    else if (angle < -112.5 && angle > -157.5)
+    //    {
+    //        return "left-up";
+    //    }
+    //    else if ((angle < -157.5 && angle > -180) || (angle >157.5 && angle < 180)) 
+    //    {
+    //        return "up";
+    //    }
 
-        return "error";
-    }
+    //    return "error";
+    //}
 
     // Update is called once per frame
     void Update () {
@@ -92,12 +92,13 @@ public class PlayerControl : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-			GameObject childGameObject = Instantiate(_bullet);
-            childGameObject.SetActive(true);
-            childGameObject.GetComponent<Transform>().position = GameObject.Find("Weapon").transform.position;
-            childGameObject.GetComponent<Transform>().up = GameObject.Find("Player").GetComponent<Transform>().up;
-            childGameObject.GetComponent<Transform>().Rotate(new Vector3(0f, 0f, 90f));
-            childGameObject.GetComponent<Rigidbody2D>().AddForce(GameObject.Find("Player").GetComponent<Transform>().up * 0.05f);
+            GameCore.GetSystem<PlayerShotting>().Shooting();
+			//GameObject childGameObject = Instantiate(_bullet);
+            //childGameObject.SetActive(true);
+            //childGameObject.GetComponent<Transform>().position = GameObject.Find("Weapon").transform.position;
+            //childGameObject.GetComponent<Transform>().up = GameObject.Find("Player").GetComponent<Transform>().up;
+            //childGameObject.GetComponent<Transform>().Rotate(new Vector3(0f, 0f, 90f));
+            //childGameObject.GetComponent<Rigidbody2D>().AddForce(GameObject.Find("Player").GetComponent<Transform>().up * 0.05f);
         }
     }
 

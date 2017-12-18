@@ -24,7 +24,7 @@ public class BulletCreate : MonoBehaviour {
             Vector3 pos = transform.position;
             Quaternion rot = transform.rotation;
             BulletClone = (GameObject)Instantiate(Bullet, pos, rot);////(3)
-            BulletClone.AddComponent("BulletState");////(4)
+            UnityEngineInternal.APIUpdaterRuntimeServices.AddComponent(BulletClone, "Assets/script/Game/BulletCreate.cs (27,13)", "BulletState");////(4)
             time = 0;
         }
     }
