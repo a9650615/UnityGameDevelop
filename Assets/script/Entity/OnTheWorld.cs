@@ -17,7 +17,7 @@ public class OnTheWorld : MonoBehaviour
         if (gameObject.GetComponent<Renderer>().IsVisibleFrom(Camera.main))
         {
 			Debug.Log("Update");
-			gameObject.GetComponent<SpriteRenderer>().sortingOrder = (int)((float)(Camera.main.WorldToScreenPoint(gameObject.GetComponent<SpriteRenderer>().bounds.min).y - Screen.height / 2) * -1);
+            gameObject.GetComponent<SpriteRenderer>().sortingOrder = (int)((float)(Camera.main.WorldToScreenPoint(gameObject.GetComponent<SpriteRenderer>().bounds.min).y - Screen.height / 2)> 0? -1: 1);
         }
     }
 	// Use this for initialization
