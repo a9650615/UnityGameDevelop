@@ -7,7 +7,10 @@ namespace Game.Entity
 	{
         public void OnTriggerStay2D(Collider2D collision)
         {
-            Destroy(this.gameObject);
+            if (collision.gameObject.tag == "CanCrack" || collision.gameObject.tag == "MapBlock")
+            {
+				Destroy(this.gameObject);
+            }
         }
     }
 }

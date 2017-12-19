@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - CanCrack
+  - MapBlock
   layers:
   - Default
   - TransparentFX
@@ -41,7 +43,7 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Building
+  - name: BackGround
     uniqueID: 1502654567
     locked: 0
   - name: Ammo
@@ -49,4 +51,7 @@ TagManager:
     locked: 0
   - name: Weapon
     uniqueID: 3372348735
+    locked: 0
+  - name: FrontGround
+    uniqueID: 3523698531
     locked: 0
