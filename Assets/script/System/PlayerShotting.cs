@@ -10,6 +10,8 @@ class PlayerShotting : IGameSystemMono
     private static CreatorSystem _creatorSystem;
     private GameObject _bullet;
     const string AmmoName = "PlayerAmmo";
+    private const float SHOOT_TIME = 0.15f;
+    private float _lastShootTime = 0f;
 
     public void AutoRemove()
     {
@@ -22,6 +24,16 @@ class PlayerShotting : IGameSystemMono
 
     public void Shooting() 
     {
+        if (_lastShootTime > SHOOT_TIME) 
+        {
+            CreateAmmoAndShoot();
+            _lastShootTime = 0;
+        }
+		_lastShootTime += Time.deltaTime;
+    }
+
+    private void CreateAmmoAndShoot()
+    {
         GameObject _newBullet = _creatorSystem.AppendGameObject(_bullet, AmmoName);
         Transform trans = _newBullet.GetComponent<Transform>();
         _newBullet.SetActive(true);
@@ -29,7 +41,7 @@ class PlayerShotting : IGameSystemMono
         trans.up = GameObject.Find("Player").GetComponent<Transform>().up;
         trans.Rotate(new Vector3(0f, 0f, 90f));
         _newBullet.GetComponent<Rigidbody2D>().AddForce(GameObject.Find("Player").GetComponent<Transform>().up * 0.05f);
-        AutoRemove();
+        AutoRemove();        
     }
     
     public override void StartGameSystem()

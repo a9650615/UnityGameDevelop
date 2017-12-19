@@ -36,12 +36,32 @@ namespace Game.Setting
         }
     }
 
+    public class MouseKeyState
+    {
+        public bool pressed = false;
+        public int keyCode;
+        public MouseKeyState(int code)
+        {
+            keyCode = code;
+        }
+        public void Press()
+        {
+            pressed = true;
+        }
+        public void Release()
+        {
+            pressed = false;
+        }
+    }
+
     public static class Key
     {
 		public static string Up = "UP";
 		public static string Down = "DOWN";
 		public static string Left = "LEFT";
 		public static string Right = "RIGHT";
+
+        public static string Left_MouseKey = "LEFT_MOUSEKEY";
 
         public static Dictionary<string, KeyState> KeySetting = new Dictionary<string, KeyState>()
         {
@@ -51,5 +71,9 @@ namespace Game.Setting
             {Right, new KeyState(KeyCode.D)},
         };
 
+        public static Dictionary<string, MouseKeyState> MouseKey = new Dictionary<string, MouseKeyState>()
+        {
+            {Left_MouseKey, new MouseKeyState(0)},
+        };
     }
 }

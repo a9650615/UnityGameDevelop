@@ -9,10 +9,10 @@ using Game.Entity;
 public class PlayerControl : Animal 
 {
     public GameObject _bullet;
-    public string name = "Player";
+    public string objName = "Player";
 	// Use this for initialization
 	void Start () {
-        mainObject = GameObject.Find(name);
+        mainObject = GameObject.Find(objName);
         _moveSpeed = 10.5f;
 	}
 
@@ -76,7 +76,7 @@ public class PlayerControl : Animal
         _direction = (mousePos).normalized;
 
         // set vector of transform directly
-        GameObject.Find(name).GetComponent<Transform>().up = _direction;
+        GameObject.Find(objName).GetComponent<Transform>().up = _direction;
 
         CheckIsClick();
         MoveCheck();
@@ -87,7 +87,7 @@ public class PlayerControl : Animal
 
     void CheckIsClick()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (GameCore.GetSystem<EventDetect>().CheckMouseIsPress(Key.Left_MouseKey))
         {
             GameCore.GetSystem<PlayerShotting>().Shooting();
         }

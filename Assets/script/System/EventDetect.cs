@@ -30,9 +30,13 @@ public class EventDetect : IGameSystemMono
         CheckKeyEvent();
     }
 
-    public bool CheckIsClick(int keyCode)
+    public bool CheckMouseIsPress(string key)
     {
-        return Input.GetMouseButtonDown(keyCode);
+        if (Key.MouseKey.ContainsKey(key))
+        {
+            return Key.MouseKey[key].pressed;
+        }
+        return false;
     }
 
     public bool CheckKeyPress(string key)
@@ -46,6 +50,7 @@ public class EventDetect : IGameSystemMono
 
     public void CheckKeyEvent()
     {
+        /* KeyBoard */
         foreach(KeyValuePair<string, KeyState> item in Key.KeySetting)
         {
             if (Input.GetKeyDown(item.Value.keyCode))
@@ -53,6 +58,18 @@ public class EventDetect : IGameSystemMono
                 item.Value.Press();
             }
             else if (Input.GetKeyUp(item.Value.keyCode))
+            {
+                item.Value.Release();
+            }
+        }
+        /* Mouse */
+        foreach (KeyValuePair<string, MouseKeyState> item in Key.MouseKey)
+        {
+            if (Input.GetMouseButtonDown(item.Value.keyCode))
+            {
+                item.Value.Press();
+            }
+            else if (Input.GetMouseButtonUp(item.Value.keyCode))
             {
                 item.Value.Release();
             }
