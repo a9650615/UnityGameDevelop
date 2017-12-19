@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Game;
 using UnityEngine;
+using Game.Entity;
 
 class PlayerShotting : IGameSystemMono
 {
@@ -41,6 +42,7 @@ class PlayerShotting : IGameSystemMono
         GameObject _newBullet = _creatorSystem.AppendGameObject(_bullet, AmmoName);
         Transform trans = _newBullet.GetComponent<Transform>();
         _newBullet.SetActive(true);
+        _newBullet.AddComponent<Bullet>();
         trans.position = GameObject.Find("Weapon").transform.position;
         trans.up = GameObject.Find("Player").GetComponent<Transform>().up;
         trans.Rotate(new Vector3(0f, 0f, 90f));

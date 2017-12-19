@@ -1,17 +1,13 @@
 using UnityEngine;
 using System.Collections;
 
-public class NewMonoBehaviour : MonoBehaviour
+namespace Game.Entity
 {
-	// Use this for initialization
-	void Start()
+	public class Bullet : MonoBehaviour
 	{
-
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-			
-	}
+        public void OnTriggerStay2D(Collider2D collision)
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
