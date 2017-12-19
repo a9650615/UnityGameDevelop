@@ -4,8 +4,8 @@ namespace Game
 {
     public abstract class IGameSystemMono : MonoBehaviour
     {
-        public abstract void StartGameSystem();
-        public abstract void DestoryGameSystem();
+        public virtual void StartGameSystem(){}
+        public virtual void DestoryGameSystem(){}
     }
 
     public sealed class GameCore : MonoBehaviour
