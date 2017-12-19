@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Game;
+using Game.Setting;
 
 public class PlayerControl : MonoBehaviour 
 {
@@ -93,34 +94,32 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             GameCore.GetSystem<PlayerShotting>().Shooting();
-			//GameObject childGameObject = Instantiate(_bullet);
-            //childGameObject.SetActive(true);
-            //childGameObject.GetComponent<Transform>().position = GameObject.Find("Weapon").transform.position;
-            //childGameObject.GetComponent<Transform>().up = GameObject.Find("Player").GetComponent<Transform>().up;
-            //childGameObject.GetComponent<Transform>().Rotate(new Vector3(0f, 0f, 90f));
-            //childGameObject.GetComponent<Rigidbody2D>().AddForce(GameObject.Find("Player").GetComponent<Transform>().up * 0.05f);
         }
     }
 
     void MoveCheck()
     {
         Rigidbody2D move = _player.GetComponent<Rigidbody2D>();;
-        if (Input.GetKeyDown(KeyCode.W))
+        Vector2 direct = Vector2.zero;
+        EventDetect e = GameCore.GetSystem<EventDetect>();
+        if (e.CheckKeyPress(Key.Up))
         {
-            move.AddForce(Vector2.up * _moveSpeed);
+            direct += Vector2.up;
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+        if (e.CheckKeyPress(Key.Down))
         {
-            move.AddForce(Vector2.left * _moveSpeed);
+            direct += Vector2.down;
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        if (e.CheckKeyPress(Key.Left))
         {
-            move.AddForce(Vector2.down * _moveSpeed);
+            direct += Vector2.left;
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        if (e.CheckKeyPress(Key.Right))
         {
-            move.AddForce(Vector2.right * _moveSpeed);
+            direct += Vector2.right;
         }
+
+        move.velocity = direct * _moveSpeed;
     }
 
     void CameraMove()

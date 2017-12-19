@@ -12,6 +12,7 @@ class CreatorSystem : IGameSystemMono
 
     public GameObject AppendGameObject(GameObject obj, string type) {
         GameObject copy = Instantiate(obj);
+        copy.transform.parent = _container.transform;
         if (!_allResource.ContainsKey(type)) 
         {    
             _allResource.Add(type, new List<GameObject>());
@@ -28,7 +29,8 @@ class CreatorSystem : IGameSystemMono
     public override void StartGameSystem()
     {
         /* Create base gameObject */
-        _container = Instantiate(new GameObject());
+        _container = new GameObject();
+        _container.name = "Creator";
     }
 
     public override void DestoryGameSystem()

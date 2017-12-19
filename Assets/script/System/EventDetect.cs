@@ -26,6 +26,8 @@ public class EventDetect : IGameSystemMono
         mousePos.y -= Screen.height / 2;
         offsetPosition = mousePos;
         direction = (mousePos).normalized;
+
+        CheckKeyEvent();
     }
 
     public bool CheckIsClick(int keyCode)
@@ -33,24 +35,27 @@ public class EventDetect : IGameSystemMono
         return Input.GetMouseButtonDown(keyCode);
     }
 
-    public string CheckKeyEvent()
+    public bool CheckKeyPress(string key)
     {
-        if (Input.GetKeyDown(KeySetting.Up))
+        if (Key.KeySetting.ContainsKey(key))
         {
-            return "Up";
+            return Key.KeySetting[key].pressed;
         }
-        else if (Input.GetKeyDown(KeySetting.Down))
+        return false;
+    }
+
+    public void CheckKeyEvent()
+    {
+        foreach(KeyValuePair<string, KeyState> item in Key.KeySetting)
         {
-            return "Down";
+            if (Input.GetKeyDown(item.Value.keyCode))
+            {
+                item.Value.Press();
+            }
+            else if (Input.GetKeyUp(item.Value.keyCode))
+            {
+                item.Value.Release();
+            }
         }
-        else if (Input.GetKeyDown(KeySetting.Left))
-        {
-            return "Left";
-        }
-        else if (Input.GetKeyDown(KeySetting.Right))
-        {
-            return "Right";
-        }
-        return null;
     }
 }

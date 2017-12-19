@@ -18,11 +18,38 @@ namespace Game.Setting
         }
     }
 
-    public static class KeySetting
+    public class KeyState 
     {
-        public static KeyCode Up = KeyCode.W;
-        public static KeyCode Down = KeyCode.S;
-        public static KeyCode Left = KeyCode.A;
-        public static KeyCode Right = KeyCode.D;
+        public bool pressed = false;
+        public KeyCode keyCode;
+        public KeyState(KeyCode code)
+        {
+            keyCode = code;
+        }
+        public void Press()
+        {
+            pressed = true;
+        }
+        public void Release()
+        {
+            pressed = false;            
+        }
+    }
+
+    public static class Key
+    {
+		public static string Up = "UP";
+		public static string Down = "DOWN";
+		public static string Left = "LEFT";
+		public static string Right = "RIGHT";
+
+        public static Dictionary<string, KeyState> KeySetting = new Dictionary<string, KeyState>()
+        {
+            {Up, new KeyState(KeyCode.W)},
+            {Down, new KeyState(KeyCode.S)},
+            {Left, new KeyState(KeyCode.A)},
+            {Right, new KeyState(KeyCode.D)},
+        };
+
     }
 }
