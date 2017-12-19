@@ -29,7 +29,11 @@ class PlayerShotting : IGameSystemMono
             CreateAmmoAndShoot();
             _lastShootTime = 0;
         }
-		_lastShootTime += Time.deltaTime;
+    }
+
+    public void Update()
+    {
+        _lastShootTime += Time.deltaTime;
     }
 
     private void CreateAmmoAndShoot()
