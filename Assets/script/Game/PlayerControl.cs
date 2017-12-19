@@ -4,16 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Game;
 using Game.Setting;
+using Game.Entity;
 
-public class PlayerControl : MonoBehaviour 
+public class PlayerControl : Animal 
 {
     public GameObject _bullet;
-    public float _moveSpeed = 10.5f;
-    private Vector2 direction;
-    private GameObject _player;
+    public string name = "Player";
 	// Use this for initialization
 	void Start () {
-        _player = GameObject.Find("Player");
+        mainObject = GameObject.Find(name);
+        _moveSpeed = 10.5f;
 	}
 
     // 該方法接收 a 點與 b 點, a 點為物件位置, b 點為目標位置
@@ -73,14 +73,10 @@ public class PlayerControl : MonoBehaviour
         mousePos.x -= Screen.width / 2;
         mousePos.y -= Screen.height / 2;
         // get direction you want to point at
-        direction = (mousePos).normalized;
+        _direction = (mousePos).normalized;
 
         // set vector of transform directly
-        GameObject.Find("Player").GetComponent<Transform>().up = direction;
-        Vector2 screenCenter;
-        screenCenter.x = Screen.width / 2;
-        screenCenter.y = Screen.height / 2;
-        //Debug.Log(GetDirection(GetAngle(screenCenter, (Vector2)Input.mousePosition)));
+        GameObject.Find(name).GetComponent<Transform>().up = _direction;
 
         CheckIsClick();
         MoveCheck();
@@ -99,7 +95,7 @@ public class PlayerControl : MonoBehaviour
 
     void MoveCheck()
     {
-        Rigidbody2D move = _player.GetComponent<Rigidbody2D>();;
+        Rigidbody2D move = mainObject.GetComponent<Rigidbody2D>();;
         Vector2 direct = Vector2.zero;
         EventDetect e = GameCore.GetSystem<EventDetect>();
         if (e.CheckKeyPress(Key.Up))
@@ -124,6 +120,6 @@ public class PlayerControl : MonoBehaviour
 
     void CameraMove()
     {
-        GameObject.Find("Main Camera").GetComponent<Transform>().position = new Vector3(_player.transform.position.x, _player.transform.position.y, -10);
+        GameObject.Find("Main Camera").GetComponent<Transform>().position = new Vector3(mainObject.transform.position.x, mainObject.transform.position.y, -10);
     }
 }
