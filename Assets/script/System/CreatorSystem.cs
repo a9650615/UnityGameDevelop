@@ -20,6 +20,11 @@ class CreatorSystem : IGameSystemMono
         return copy;
     }
 
+    public List<GameObject> GetTypeList(string type)
+    {
+        return _allResource[type];
+    }
+
     public override void StartGameSystem()
     {
         /* Create base gameObject */
