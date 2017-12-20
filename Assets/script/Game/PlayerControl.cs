@@ -8,7 +8,6 @@ using Game.Entity;
 
 public class PlayerControl : Animal 
 {
-    public GameObject _bullet;
     public string objName = "Player";
 	// Use this for initialization
 	void Start () {

@@ -9,12 +9,27 @@ class CreatorSystem : IGameSystemMono
 {
     private Dictionary<string, List<GameObject>> _allResource = new Dictionary<string, List<GameObject>>();
     private GameObject _container;
+    private const string CANVAS = "Canvas";
 
     public GameObject AppendGameObject(GameObject obj, string type) {
-        GameObject copy = Instantiate(obj);
+        GameObject copy = Append(obj, type);
         copy.transform.parent = _container.transform;
-        if (!_allResource.ContainsKey(type)) 
-        {    
+        return copy;
+    }
+
+    public GameObject AppendGameObjectToCanvas(GameObject obj, string type)
+    {
+        GameObject copy = Append(obj, type);
+        copy.transform.parent = GameObject.Find(CANVAS).transform;
+        return copy;
+    }
+
+    private GameObject Append(GameObject obj, string type)
+    {
+        GameObject copy = Instantiate(obj);
+
+        if (!_allResource.ContainsKey(type))
+        {
             _allResource.Add(type, new List<GameObject>());
         }
         _allResource[type].Add(copy);
