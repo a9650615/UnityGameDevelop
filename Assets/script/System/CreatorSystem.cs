@@ -24,6 +24,14 @@ class CreatorSystem : IGameSystemMono
         return copy;
     }
 
+    public void RemoveByGameObject(GameObject obj, string type)
+	{
+        int index = _allResource[type].FindIndex(gameObj => gameObj.GetInstanceID() == obj.GetInstanceID());
+        Debug.Log(index);
+        Destroy(_allResource[type][index]);
+        _allResource[type].RemoveAt(index);
+	}
+
     private GameObject Append(GameObject obj, string type)
     {
         GameObject copy = Instantiate(obj);
@@ -35,6 +43,7 @@ class CreatorSystem : IGameSystemMono
         _allResource[type].Add(copy);
         return copy;
     }
+
 
     public List<GameObject> GetTypeList(string type)
     {

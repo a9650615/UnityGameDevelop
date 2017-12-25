@@ -1,17 +1,19 @@
 using UnityEngine;
 using System.Collections;
 
-public class NewMonoBehaviour : MonoBehaviour
+public class CanBeAttack : MonoBehaviour
 {
-	// Use this for initialization
-	void Start()
-	{
+    public int hp = 100;
+ 
+    public int maxHp = 100;
 
-	}
+    public void Start()
+    {
+        gameObject.tag = "CanCrack";
+    }
 
-	// Update is called once per frame
-	void Update()
-	{
-			
-	}
+    public virtual int BeAttack(int attack)
+    {
+        return 0;
+    }
 }

@@ -12,7 +12,7 @@ public static class RendererExtensions
     }
 }
 
-public class Tower : MonoBehaviour
+public class Tower : CanBeAttack
 {
     bool firstLoad = false;
     private Bar _bar;
@@ -23,14 +23,21 @@ public class Tower : MonoBehaviour
         {
             gameObject.GetComponent<SpriteRenderer>().sortingLayerName = ((float)(Camera.main.WorldToScreenPoint(gameObject.GetComponent<SpriteRenderer>().bounds.min).y - Screen.height / 2) > 0 ? "BackGround" : "FrontGround");
             //gameObject.GetComponent<SpriteRenderer>().sortingOrder = (int)((float)(Camera.main.WorldToScreenPoint(gameObject.GetComponent<SpriteRenderer>().bounds.min).y - Screen.height / 2)> 0? -2: 2);
-            _bar.Update();
+            _bar.Update(hp, maxHp);
+        }
+
+        if (hp <= 0)
+        {
+            Destroy(gameObject);
+            _bar.Remove();
+            _bar = null;
         }
     }
-	// Use this for initialization
-	void Start()
-	{
-
-	}
+	
+    public override int BeAttack(int attack)
+    {
+        return hp = hp - attack;
+    }
 
 	// Update is called once per frame
 	void Update()
