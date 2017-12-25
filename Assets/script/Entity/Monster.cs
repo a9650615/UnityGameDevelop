@@ -1,18 +1,16 @@
 using UnityEngine;
 using System.Collections;
-using Game;
-using Game.Entity;
 
-public class Tower : CanBeAttack
+public class Monster : CanBeAttack
 {
     public override string GetName()
     {
-        return "Tower";
+        return "Monster";
     }
 
     public override Vector2 GetOffset()
     {
-        return new Vector2(-5, 70);
+        return new Vector2(12, 30);
     }
 
     public override int BeAttack(int attack)
@@ -23,6 +21,6 @@ public class Tower : CanBeAttack
 	// Update is called once per frame
 	void Update()
 	{
-        
+			
 	}
 }
