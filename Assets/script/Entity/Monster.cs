@@ -26,6 +26,11 @@ public class Monster : CanBeAttack
         return hp = hp - attack;
     }
 
+    public override void Start()
+    {
+        gameObject.tag = "Monster";
+    }
+
 	// Update is called once per frame
 	void Update()
 	{
@@ -43,13 +48,15 @@ public class Monster : CanBeAttack
         while (i < hitColliders.Length && !stopMove)
         {
             //hitColliders[i].SendMessage("AddDamage");
-            if (hitColliders[i].name != "Monster")
+            if (hitColliders[i].tag != "Monster" && hitColliders[i].tag != "MapBlock")
+            {
+                //Debug.Log(hitColliders[i].tag);
                 if (hitColliders[i].tag == "CanCrack" || hitColliders[i].tag == "Player")
                 {
-                    //Debug.Log(hitColliders[i].name);
-                    float step = speed * Time.deltaTime;
-                    gameObject.transform.position = Vector2.MoveTowards(oldPosition, hitColliders[i].transform.position, step);
-                }
+					float step = speed * Time.deltaTime;
+					gameObject.transform.position = Vector2.MoveTowards(oldPosition, hitColliders[i].transform.position, step);
+				}
+            }
             i++;
         }
 	}

@@ -33,7 +33,7 @@ public class CanBeAttack : MonoBehaviour
 		return 0;
 	}
 
-    public void Start()
+    public virtual void Start()
     {
         gameObject.tag = "CanCrack";
     }
