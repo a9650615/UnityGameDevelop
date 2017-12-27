@@ -5,6 +5,9 @@ using Game.Entity;
 
 public class Tower : CanBeAttack
 {
+    public float attackTime = 0.1f;
+    public float counter = 0;
+
     public override string GetName()
     {
         return "Tower";
@@ -23,6 +26,11 @@ public class Tower : CanBeAttack
 	// Update is called once per frame
 	void Update()
 	{
-        
+        counter += Time.deltaTime * 10;
+        if (counter > attackTime)
+        {
+			GameCore.GetSystem<TowerShotting>().Shotting(gameObject);
+            counter = 0;
+        }
 	}
 }
