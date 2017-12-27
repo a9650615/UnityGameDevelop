@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: 91ee4778cdb49ef45a1386960bb07fcc
-timeCreated: 1514295131
-licenseType: Free
+guid: b766c20fa76c042818511bdce56562c9
+timeCreated: 1514393504
+licenseType: Pro
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
-    100000: gameMap1_mesh_0003
+    100000: UnityGameTile_mesh_0003
     100002: //RootNode
-    400000: gameMap1_mesh_0003
+    400000: UnityGameTile_mesh_0003
     400002: //RootNode
-    2300000: gameMap1_mesh_0003
-    3300000: gameMap1_mesh_0003
-    4300000: gameMap1_mesh_0003
+    2300000: UnityGameTile_mesh_0003
+    3300000: UnityGameTile_mesh_0003
+    4300000: UnityGameTile_mesh_0003
   materials:
     importMaterials: 0
     materialName: 0
@@ -50,7 +50,7 @@ ModelImporter:
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
-    keepQuads: 0
+    keepQuads: 1
     weldVertices: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
@@ -59,7 +59,7 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 1
+    normalImportMode: 0
     tangentImportMode: 2
     normalCalculationMode: 4
   importAnimation: 1
