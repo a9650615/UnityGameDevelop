@@ -1,9 +1,9 @@
 fileFormatVersion: 2
 guid: 019dc0f4b81564df08dfbfdb7b2ed4d9
-timeCreated: 1514393980
-licenseType: Pro
+timeCreated: 1514446052
+licenseType: Free
 ModelImporter:
-  serializedVersion: 21
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: UnityGameTile_mesh_0008
     100002: //RootNode
@@ -12,10 +12,12 @@ ModelImporter:
     2300000: UnityGameTile_mesh_0008
     3300000: UnityGameTile_mesh_0008
     4300000: UnityGameTile_mesh_0008
+  externalObjects: {}
   materials:
     importMaterials: 0
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 0
     bakeSimulation: 0
@@ -28,6 +30,7 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5

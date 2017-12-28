@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!--Tiled2Unity generated xml data-->
 <!--Do not modify by hand-->
-<!--Last exported: 2017/12/28 15:17:55-->
+<!--Last exported: 2017/12/28 15:27:13-->
 <Tiled2Unity version="1.0.13.2">
   <AssignMaterial mesh="map2_mesh_0001" material="tf_beach_tileA1" />
   <AssignMaterial mesh="map2_mesh_0002" material="tf_beach_tileB" />
@@ -29,9 +29,13 @@
     </GameObject>
     <GameObject name="对象层 1" x="0" y="0" z="-0.075">
       <ObjectLayer offsetX="0" offsetY="0" color="#ff808080" />
-      <GameObject name="RectangleObject" x="788" y="384" rotation="0" layer="">
-        <RectangleObjectComponent tmx-object-id="29" tmx-object-name="" tmx-object-type="" tmx-object-x="788" tmx-object-y="-384" tmx-object-width="0" tmx-object-height="0" tmx-object-rotation="0" />
-        <BoxCollider2D width="0" height="0" />
+      <GameObject name="RectangleObject" x="-8" y="60" rotation="0" layer="">
+        <RectangleObjectComponent tmx-object-id="38" tmx-object-name="" tmx-object-type="" tmx-object-x="-8" tmx-object-y="-60" tmx-object-width="1952" tmx-object-height="52" tmx-object-rotation="0" />
+        <BoxCollider2D width="1952" height="52" />
+      </GameObject>
+      <GameObject name="RectangleObject" x="-32" y="4" rotation="0" layer="">
+        <RectangleObjectComponent tmx-object-id="39" tmx-object-name="" tmx-object-type="" tmx-object-x="-32" tmx-object-y="-4" tmx-object-width="24" tmx-object-height="1276" tmx-object-rotation="0" />
+        <BoxCollider2D width="24" height="1276" />
       </GameObject>
       <GameObject name="PolylineObject" x="136" y="-4" rotation="0" layer="">
         <PolylineObjectComponent tmx-object-id="1" tmx-object-name="" tmx-object-type="" tmx-object-x="136" tmx-object-y="4" tmx-object-width="0" tmx-object-height="0" tmx-object-rotation="0" />
@@ -142,6 +146,17 @@
       <GameObject name="RectangleObject" x="336" y="-1196" rotation="0" layer="">
         <RectangleObjectComponent tmx-object-id="17" tmx-object-name="" tmx-object-type="" tmx-object-x="336" tmx-object-y="1196" tmx-object-width="36" tmx-object-height="80" tmx-object-rotation="0" />
         <BoxCollider2D width="36" height="80" />
+      </GameObject>
+      <GameObject name="RectangleObject" x="-20" y="-1288" rotation="0" layer="">
+        <RectangleObjectComponent tmx-object-id="40" tmx-object-name="" tmx-object-type="" tmx-object-x="-20" tmx-object-y="1288" tmx-object-width="1952" tmx-object-height="20" tmx-object-rotation="0" />
+        <BoxCollider2D width="1952" height="20" />
+      </GameObject>
+    </GameObject>
+    <GameObject name="墙壁" x="0" y="0" z="-0.1">
+      <ObjectLayer offsetX="0" offsetY="0" color="#ff808080" />
+      <GameObject name="RectangleObject" x="1924" y="-8" rotation="0" layer="">
+        <RectangleObjectComponent tmx-object-id="37" tmx-object-name="" tmx-object-type="" tmx-object-x="1924" tmx-object-y="8" tmx-object-width="20" tmx-object-height="1260" tmx-object-rotation="0" />
+        <BoxCollider2D width="20" height="1260" />
       </GameObject>
     </GameObject>
   </Prefab>
