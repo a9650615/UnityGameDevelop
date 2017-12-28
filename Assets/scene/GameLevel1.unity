@@ -1037,6 +1037,7 @@ MonoBehaviour:
   viewRange: 10
   updateTargetTime: 3
   attackTime: 3
+  searchTargetTime: 10
   attackRange: 1
   attack: 10
 --- !u!212 &575841837
@@ -1200,6 +1201,7 @@ MonoBehaviour:
   viewRange: 14
   updateTargetTime: 3
   attackTime: 3
+  searchTargetTime: 10
   attackRange: 1
   attack: 10
 --- !u!212 &787503851
@@ -1670,6 +1672,7 @@ MonoBehaviour:
   viewRange: 14
   updateTargetTime: 3
   attackTime: 3
+  searchTargetTime: 10
   attackRange: 1
   attack: 10
 --- !u!212 &841974402
@@ -1807,6 +1810,7 @@ MonoBehaviour:
   viewRange: 10
   updateTargetTime: 3
   attackTime: 3
+  searchTargetTime: 10
   attackRange: 1
   attack: 10
 --- !u!58 &933352804
@@ -3253,6 +3257,7 @@ MonoBehaviour:
   viewRange: 14
   updateTargetTime: 3
   attackTime: 3
+  searchTargetTime: 10
   attackRange: 1
   attack: 10
 --- !u!212 &1916975224
