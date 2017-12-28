@@ -119,6 +119,7 @@ public class PlayerControl : Animal
 
     void CameraMove()
     {
-        GameObject.Find("Main Camera").GetComponent<Transform>().position = new Vector3(mainObject.transform.position.x, mainObject.transform.position.y, -10);
+        Vector3 specificVector = new Vector3(mainObject.transform.position.x, mainObject.transform.position.y, -1);
+        GameObject.Find("Main Camera").GetComponent<Transform>().position = Vector3.Lerp(GameObject.Find("Main Camera").transform.position, specificVector, 7f * Time.deltaTime);
     }
 }
