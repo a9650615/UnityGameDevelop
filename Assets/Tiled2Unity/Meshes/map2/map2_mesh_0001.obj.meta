@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: 795442e15d50043849aa7dfcf7f18fd4
-timeCreated: 1514446053
+guid: 3a7f344818b089b42a72a1e8828a2db1
+timeCreated: 1514446035
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: UnityGameTile_mesh_0001
+    100000: map2_mesh_0001
     100002: //RootNode
-    400000: UnityGameTile_mesh_0001
+    400000: map2_mesh_0001
     400002: //RootNode
-    2300000: UnityGameTile_mesh_0001
-    3300000: UnityGameTile_mesh_0001
-    4300000: UnityGameTile_mesh_0001
+    2300000: map2_mesh_0001
+    3300000: map2_mesh_0001
+    4300000: map2_mesh_0001
   externalObjects: {}
   materials:
     importMaterials: 0
