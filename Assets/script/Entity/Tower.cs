@@ -6,7 +6,7 @@ using Game.Entity;
 
 public class Tower : CanBeAttack
 {
-    public float attackTime = 0.1f;
+    public float attackTime = 1f;
     public float counter = 0;
     public string towerType = "mg";
     private List<Sprite> _sprites;
@@ -82,7 +82,7 @@ public class Tower : CanBeAttack
         if (counter > attackTime)
         {
             rotate = GameCore.GetSystem<TowerShotting>().Shotting(gameObject);
-            Debug.Log(rotate);
+            //Debug.Log(rotate);
             ChangeSprite(rotate);
             counter = 0;
         }

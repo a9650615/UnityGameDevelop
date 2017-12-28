@@ -61,7 +61,7 @@ public class Monster : CanBeAttack
                 if (hitColliders[i].tag == "CanCrack" || hitColliders[i].tag == "Player")
                 {
                     if (isAttack&&hitColliders[i].tag == "CanCrack" && Vector3.Distance(gameObject.transform.position, hitColliders[i].transform.position) < attackRange)
-					{
+                    {
                         hitColliders[i].GetComponent<CanBeAttack>().BeAttack(attack);
 					}
                     float step = speed * Time.deltaTime;

@@ -32,6 +32,13 @@ class CreatorSystem : IGameSystemMono
         _allResource[type].RemoveAt(index);
 	}
 
+    public GameObject AppendToWorld(GameObject obj, string type)
+    {
+        GameObject copy = Append(obj, type);
+        copy.transform.parent = GameObject.Find("World").transform;
+        return copy;
+    }
+
     private GameObject Append(GameObject obj, string type)
     {
         GameObject copy = Instantiate(obj);

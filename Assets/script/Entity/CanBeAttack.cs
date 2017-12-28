@@ -36,6 +36,7 @@ public class CanBeAttack : MonoBehaviour
     public virtual void Start()
     {
         gameObject.tag = "CanCrack";
+        hp = maxHp;
     }
 
     void LateUpdate()

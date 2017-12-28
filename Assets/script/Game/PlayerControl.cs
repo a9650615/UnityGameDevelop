@@ -107,9 +107,14 @@ public class PlayerControl : Animal
         {
             GameCore.GetSystem<PlayerShotting>().Shooting();
         }
-        if (GameCore.GetSystem<EventDetect>().CheckMouseIsPress(Key.Right_MouseKey))
+        if (_buildLoading >= _buildLoadTime && GameCore.GetSystem<EventDetect>().CheckMouseIsPress(Key.Right_MouseKey))
         {
-            
+            GameObject tower = GameCore.GetSystem<ResourceSystem>().GetResource("tower");
+            tower = GameCore.GetSystem<CreatorSystem>().AppendToWorld(tower, "tower");
+            tower.AddComponent<Tower>();
+            tower.transform.position = mainObject.transform.position;
+            tower.GetComponent<Tower>().attackTime = 2;
+            _buildLoading = 0;
         }
     }
 
