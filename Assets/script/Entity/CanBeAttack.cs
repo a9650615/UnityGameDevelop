@@ -51,6 +51,11 @@ public class CanBeAttack : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().sortingLayerName = ((float)(Camera.main.WorldToScreenPoint(gameObject.GetComponent<SpriteRenderer>().bounds.min).y - Screen.height / 2) > 0 ? "BackGround" : "FrontGround");
             //gameObject.GetComponent<SpriteRenderer>().sortingOrder = (int)((float)(Camera.main.WorldToScreenPoint(gameObject.GetComponent<SpriteRenderer>().bounds.min).y - Screen.height / 2)> 0? -2: 2);
             _bar.Update(hp, maxHp);
+            _bar.Show();
+        }
+        else
+        {
+            _bar.Hide();
         }
 
         if (hp <= 0)

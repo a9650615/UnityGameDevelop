@@ -30,6 +30,16 @@ namespace Game.Entity
             objReactTran.sizeDelta = new Vector2((hp/maxHp) * defaultWidth, objReactTran.sizeDelta.y);
         }
 
+        public void Hide()
+        {
+            gameObject.SetActive(false);
+        }
+
+        public void Show()
+        {
+            gameObject.SetActive(true);
+        }
+
         public void Remove()
         {
             GameCore.GetSystem<CreatorSystem>().RemoveByGameObject(gameObject, _typeName+"Hp");
