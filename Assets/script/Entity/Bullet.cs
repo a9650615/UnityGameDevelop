@@ -13,7 +13,7 @@ namespace Game.Entity
             {
                 if (collision.gameObject.tag == "Monster")
                 {
-                    Debug.Log(collision.gameObject.GetComponent<CanBeAttack>().BeAttack(attack));
+                    collision.gameObject.GetComponent<CanBeAttack>().BeAttack(attack);
 					Destroy(this.gameObject);
                 }
             }
@@ -23,7 +23,7 @@ namespace Game.Entity
 				{
 					if (collision.gameObject.tag == "Monster")
 					{
-						Debug.Log(collision.gameObject.GetComponent<CanBeAttack>().BeAttack(attack));
+						collision.gameObject.GetComponent<CanBeAttack>().BeAttack(attack);
 					}
 					Destroy(this.gameObject);
 				}

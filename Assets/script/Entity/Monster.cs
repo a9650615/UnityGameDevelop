@@ -8,6 +8,7 @@ public class Monster : CanBeAttack
 	public float updateTargetTime = 4f;
     public float attackTime = 1f;
     public float attackRange = 0.5f;
+    public int attack = 10;
 
     private Vector2 oldPosition;
     private float nowTargetTime = 0;
@@ -61,7 +62,7 @@ public class Monster : CanBeAttack
                 {
                     if (isAttack&&hitColliders[i].tag == "CanCrack" && Vector3.Distance(gameObject.transform.position, hitColliders[i].transform.position) < attackRange)
 					{
-                        hitColliders[i].GetComponent<CanBeAttack>().BeAttack(8);
+                        hitColliders[i].GetComponent<CanBeAttack>().BeAttack(attack);
 					}
                     float step = speed * Time.deltaTime;
                     gameObject.transform.position = Vector2.MoveTowards(oldPosition, hitColliders[i].transform.position, step);

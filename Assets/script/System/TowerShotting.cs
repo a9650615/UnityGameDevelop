@@ -44,7 +44,17 @@ public class TowerShotting : IGameSystemMono
         }
     }
 
-    public void Shotting(GameObject tower)
+    public float GetAngle(Vector2 a, Vector2 b)
+    {
+        Vector2 v2 = (b - a).normalized;
+        float angle = Mathf.Atan2(v2.y, v2.x) * Mathf.Rad2Deg;
+        if (angle < 0)
+            angle = 360 + angle;
+        angle = 360 - angle;
+        return angle;
+    }
+
+    public float Shotting(GameObject tower)
     {
         int i = 0;
         bool attacked = false;
@@ -61,6 +71,12 @@ public class TowerShotting : IGameSystemMono
                 attacked = true;
             }
             i++;
-        }   
+        }
+        if (attacked)
+        {
+            return GetAngle(_gameObject.transform.position, hitColliders[i - 1].transform.position);
+            //return Vector2.Angle(hitColliders[i - 1].transform.position, transform.forward);
+        }
+        return -1;
     }
 }
