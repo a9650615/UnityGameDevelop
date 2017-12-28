@@ -62,6 +62,7 @@ namespace Game.Setting
 		public static string Right = "RIGHT";
 
         public static string Left_MouseKey = "LEFT_MOUSEKEY";
+        public static string Right_MouseKey = "RIGHT_MOUSEKEY";
 
         public static Dictionary<string, KeyState> KeySetting = new Dictionary<string, KeyState>()
         {
@@ -74,6 +75,7 @@ namespace Game.Setting
         public static Dictionary<string, MouseKeyState> MouseKey = new Dictionary<string, MouseKeyState>()
         {
             {Left_MouseKey, new MouseKeyState(0)},
+            {Right_MouseKey, new MouseKeyState(1)}
         };
     }
 }

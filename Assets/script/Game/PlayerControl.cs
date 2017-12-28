@@ -9,10 +9,17 @@ using Game.Entity;
 public class PlayerControl : Animal 
 {
     public string objName = "Player";
+    public float _buildLoadTime = 10;
+    private float _buildLoading;
+    private GameObject _hpBar;
+    private GameObject _buildBar;
+
 	// Use this for initialization
 	void Start () {
         mainObject = GameObject.Find(objName);
         _moveSpeed = 10.5f;
+        _hpBar = GameObject.Find("HpMask");
+        _buildBar = GameObject.Find("BuildWaitBar");
 	}
 
     // 該方法接收 a 點與 b 點, a 點為物件位置, b 點為目標位置
@@ -65,6 +72,12 @@ public class PlayerControl : Animal
     //    return "error";
     //}
 
+    void UpdateHud()
+    {
+        _hpBar.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(100, ((RectTransform)_hpBar.transform).rect.height);
+        _buildBar.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(_buildLoading/_buildLoadTime * ((RectTransform)_buildBar.transform).rect.width, ((RectTransform)_buildBar.transform).rect.height);
+    }
+
     // Update is called once per frame
     void Update () {
         //Vector2 mouseScreenPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -82,6 +95,10 @@ public class PlayerControl : Animal
         CameraMove();
 
         GameCore.GetSystem<EventDetect>().Update();
+        UpdateHud();
+
+        if (_buildLoading < _buildLoadTime)
+            _buildLoading += Time.deltaTime;
     }
 
     void CheckIsClick()
@@ -89,6 +106,10 @@ public class PlayerControl : Animal
         if (GameCore.GetSystem<EventDetect>().CheckMouseIsPress(Key.Left_MouseKey))
         {
             GameCore.GetSystem<PlayerShotting>().Shooting();
+        }
+        if (GameCore.GetSystem<EventDetect>().CheckMouseIsPress(Key.Right_MouseKey))
+        {
+            
         }
     }
 
