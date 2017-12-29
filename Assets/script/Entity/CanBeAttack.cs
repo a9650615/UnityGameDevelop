@@ -41,7 +41,7 @@ public class CanBeAttack : MonoBehaviour
 
     void LateUpdate()
     {
-        if (!firstLoad)
+        if (!firstLoad&&GetName() != "Player")
         {
             _bar = new Bar(gameObject, GetOffset(), GetName());
             firstLoad = true;
@@ -59,7 +59,7 @@ public class CanBeAttack : MonoBehaviour
             _bar.Hide();
         }
 
-        if (hp <= 0)
+        if (hp <= 0 && GetName() != "Player")
         {
             Destroy(gameObject);
             _bar.Remove();

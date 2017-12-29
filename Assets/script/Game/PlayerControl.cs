@@ -74,7 +74,9 @@ public class PlayerControl : Animal
 
     void UpdateHud()
     {
-        _hpBar.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(100, ((RectTransform)_hpBar.transform).rect.height);
+        float maxHp = mainObject.GetComponent<Player>().maxHp;
+        float hp = mainObject.GetComponent<Player>().hp;
+        _hpBar.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(hp/maxHp*((RectTransform)_hpBar.transform).rect.width, ((RectTransform)_hpBar.transform).rect.height);
         _buildBar.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(_buildLoading/_buildLoadTime * ((RectTransform)_buildBar.transform).rect.width, ((RectTransform)_buildBar.transform).rect.height);
     }
 

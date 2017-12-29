@@ -61,7 +61,7 @@ public class Monster : CanBeAttack
         {
             isSearch = true;
             searchTime = 0;
-            Debug.Log("research");
+            //Debug.Log("research");
         }
 
         while (i < hitColliders.Length && !stopMove)
@@ -72,9 +72,9 @@ public class Monster : CanBeAttack
                 //Debug.Log(hitColliders[i].tag);
                 if (hitColliders[i].tag == "CanCrack" || hitColliders[i].tag == "Player")
                 {
-                    if (isAttack&&hitColliders[i].tag == "CanCrack" && Vector3.Distance(gameObject.transform.position, hitColliders[i].transform.position) < attackRange)
+                    if (isAttack && Vector3.Distance(gameObject.transform.position, hitColliders[i].transform.position) < attackRange)
                     {
-                        hitColliders[i].GetComponent<CanBeAttack>().BeAttack(attack);
+                        Debug.Log(hitColliders[i].GetComponent<CanBeAttack>().BeAttack(attack));
 					}
                     if (isSearch)
                     {
