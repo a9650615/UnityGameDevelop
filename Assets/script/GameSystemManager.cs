@@ -17,7 +17,7 @@ namespace Game
         public GameSystemManager(GameObject oContainer)
         {
             m_oContainer = oContainer;
-            GameObject.DontDestroyOnLoad(m_oContainer);
+            //GameObject.DontDestroyOnLoad(m_oContainer);
 
             m_GameSystemList = new Dictionary<Type, IGameSystemMono>();
         }

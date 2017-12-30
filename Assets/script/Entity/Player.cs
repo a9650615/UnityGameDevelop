@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using Game.Entity;
+using Game;
+using Game.Setting;
 
 public class Player : CanBeAttack
 {
@@ -12,7 +14,9 @@ public class Player : CanBeAttack
     public override int BeAttack(int attack)
     {
         hp = hp - attack;
-        hp = hp<=0? 1: hp;
+        //hp = hp<=0? 1: hp;
+        if (hp < 0)
+            GameCore.GetSystem<DynamicSceneLoader>().LoadToScene(Setting.Scene.Title);
         return hp;
     }
 

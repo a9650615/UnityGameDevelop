@@ -25,7 +25,7 @@ namespace Game
             {
                 m_bIsInitialized = true;
                 transform.name = "[GameCore]";
-                GameObject.DontDestroyOnLoad(this.gameObject);
+                //GameObject.DontDestroyOnLoad(this.gameObject);
                 InstanceGameObject = this.gameObject;
                 m_SystemManager = new GameSystemManager(InstanceGameObject);
             }

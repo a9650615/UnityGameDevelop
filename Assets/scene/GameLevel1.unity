@@ -1148,7 +1148,6 @@ MonoBehaviour:
   maxHp: 1000
   speed: 3
   viewRange: 10
-  updateTargetTime: 3
   attackTime: 3
   searchTargetTime: 10
   attackRange: 1
@@ -1746,7 +1745,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &933352801
 Transform:
   m_ObjectHideFlags: 0
@@ -1817,7 +1816,6 @@ MonoBehaviour:
   maxHp: 1000
   speed: 3
   viewRange: 10
-  updateTargetTime: 3
   attackTime: 3
   searchTargetTime: 10
   attackRange: 1
@@ -2007,7 +2005,6 @@ MonoBehaviour:
   maxHp: 1000
   speed: 4
   viewRange: 13
-  updateTargetTime: 3
   attackTime: 3
   searchTargetTime: 4
   attackRange: 1.2
@@ -3097,6 +3094,7 @@ GameObject:
   - component: {fileID: 1475846525}
   - component: {fileID: 1475846522}
   - component: {fileID: 1475846529}
+  - component: {fileID: 1475846530}
   m_Layer: 0
   m_Name: Script
   m_TagString: Untagged
@@ -3201,6 +3199,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AmmoName: TowerAmmo
+--- !u!114 &1475846530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1475846521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daab2761e87fa4b50b3784a530798054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1517284428
 GameObject:
   m_ObjectHideFlags: 0
