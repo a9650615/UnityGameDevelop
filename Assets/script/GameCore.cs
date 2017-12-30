@@ -10,9 +10,9 @@ namespace Game
 
     public sealed class GameCore : MonoBehaviour
     {
-        public static GameObject InstanceGameObject;
+        public GameObject InstanceGameObject;
         private static GameSystemManager m_SystemManager;
-        private static bool m_bIsInitialized = false;
+        private bool m_bIsInitialized = false;
 
         private void Awake()
         {
