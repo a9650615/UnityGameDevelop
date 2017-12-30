@@ -26,7 +26,7 @@ namespace Game
         {
             if (m_bIsInitialized)
             {
-                return;
+                //return;
             }
             m_bIsInitialized = true;
 

@@ -13,7 +13,8 @@ public class TestScript : MonoBehaviour
 
 	// Update is called once per frame
 	void Update()
-	{
-        GameCore.GetSystem<DynamicSceneLoader>().LoadToScene(Setting.Scene.Game);
+    {;
+        new DynamicSceneLoader().LoadToScene(Setting.Scene.Game);
+        //GameCore.GetSystem<DynamicSceneLoader>().LoadToScene(Setting.Scene.Game);
 	}
 }

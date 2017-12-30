@@ -11,6 +11,8 @@ public class TitleOptions : MonoBehaviour {
     public AudioClip moveSound ;
     public AudioClip okSound ;
     public AudioSource se; // SE元件
+    public GameObject hardSelect;
+    public GameObject gameSelect;
     public FadeInOut _fadeInOut;
     //public World _world ;
 	int id = 0 ;
@@ -56,6 +58,9 @@ public class TitleOptions : MonoBehaviour {
                     break;
                 // load
                 case 1:
+                    _fadeInOut.FadeOut();
+                    hardSelect.SetActive(true);
+                    gameSelect.SetActive(false);
                     break;
                 // exit
                 case 2:

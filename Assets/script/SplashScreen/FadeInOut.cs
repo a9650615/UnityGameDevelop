@@ -24,13 +24,13 @@ namespace Game.SplashScreen {
 		}
 		
 		// 淡入淡出
-		private void FadeIn()
+        public void FadeIn()
 		{
             _blackColor.a = 1;
 			speed = - Mathf.Abs(speed);
 		}
 		
-        private void FadeOut()
+        public void FadeOut()
 		{
             _blackColor.a = 0;
 			speed = Mathf.Abs(speed);

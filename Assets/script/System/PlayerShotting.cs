@@ -43,10 +43,10 @@ class PlayerShotting : IGameSystemMono
         Transform trans = _newBullet.GetComponent<Transform>();
         _newBullet.SetActive(true);
         _newBullet.AddComponent<Bullet>();
-        trans.position = GameObject.Find("Weapon").transform.position;
+        trans.position = GameObject.Find("ShootPoint").transform.position;
         trans.up = GameObject.Find("Player").GetComponent<Transform>().up;
         trans.Rotate(new Vector3(0f, 0f, 90f));
-        _newBullet.GetComponent<Rigidbody2D>().AddForce(GameObject.Find("Player").GetComponent<Transform>().up * 0.09f);
+        _newBullet.GetComponent<Rigidbody2D>().AddForce(GameObject.Find("Player").GetComponent<Transform>().up * 0.2f);
         AutoRemove();        
     }
     
