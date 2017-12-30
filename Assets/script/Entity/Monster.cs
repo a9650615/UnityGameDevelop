@@ -5,7 +5,6 @@ public class Monster : CanBeAttack
 {
     public float speed = 3.0f;
     public float viewRange = 10f;
-	public float updateTargetTime = 4f;
     public float attackTime = 1f;
     public float searchTargetTime = 2f;
     private float searchTime = 1f;
