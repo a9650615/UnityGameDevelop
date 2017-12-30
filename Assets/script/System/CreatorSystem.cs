@@ -54,7 +54,25 @@ class CreatorSystem : IGameSystemMono
 
     public List<GameObject> GetTypeList(string type)
     {
-        return _allResource[type];
+        if (_allResource.ContainsKey(type))
+        {
+			return _allResource[type];
+        }
+        return new List<GameObject>();
+    }
+
+    public void RemoveByInstantId(string type, GameObject gameObject)
+    {
+        if (_allResource.ContainsKey(type))
+        {
+            int index = _allResource[type].FindIndex(delegate (GameObject gameObj)
+            {
+                return gameObj.GetInstanceID() == gameObject.GetInstanceID();
+            });
+
+            if (index != -1)
+            _allResource[type].RemoveAt(index);
+        }
     }
 
     public override void StartGameSystem()

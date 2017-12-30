@@ -7,15 +7,18 @@ public class Monster : CanBeAttack
     public float viewRange = 10f;
 	public float updateTargetTime = 4f;
     public float attackTime = 1f;
-    public float searchTargetTime = 3f;
+    public float searchTargetTime = 2f;
     private float searchTime = 1f;
     public float attackRange = 0.5f;
     public int attack = 10;
 
     private Vector2 oldPosition;
     private float nowTargetTime = 0;
-    private GameObject target;
+    private GameObject targetObj;
+    private Vector3 target;
+    private Vector3 randTarget;
     private bool isSearch = false;
+    private bool isFinded = false;
 
     public override string GetName()
     {
@@ -36,6 +39,7 @@ public class Monster : CanBeAttack
     public override void Start()
     {
         gameObject.tag = "Monster";
+        randTarget = gameObject.transform.position + new Vector3(Random.Range(-5.0f, 5.0f), Random.Range(-5.0f, 5.0f), 0);
     }
 
 
@@ -57,11 +61,23 @@ public class Monster : CanBeAttack
             nowTargetTime = 0;
         }
 
-        if (searchTime > searchTargetTime || target == null)
+        if (searchTime > searchTargetTime)
         {
             isSearch = true;
             searchTime = 0;
+            targetObj = null;
+            randTarget = gameObject.transform.position + new Vector3(Random.Range(-5.0f, 5.0f), Random.Range(-5.0f, 5.0f), 0);
             //Debug.Log("research");
+        }
+
+        if (targetObj == null)
+        {
+            //Debug.Log(gameObject.transform.position);
+            target = randTarget;
+        }
+        else
+        {
+            target = targetObj.transform.position;
         }
 
         while (i < hitColliders.Length && !stopMove)
@@ -74,11 +90,13 @@ public class Monster : CanBeAttack
                 {
                     if (isAttack && Vector3.Distance(gameObject.transform.position, hitColliders[i].transform.position) < attackRange)
                     {
-                        Debug.Log(hitColliders[i].GetComponent<CanBeAttack>().BeAttack(attack));
+                        //Debug.Log();
+                        hitColliders[i].GetComponent<CanBeAttack>().BeAttack(attack);
 					}
-                    if (isSearch)
+                    if (isSearch || targetObj == null)
                     {
-						target = hitColliders[i].gameObject;
+                        targetObj = hitColliders[i].gameObject;
+                        target = hitColliders[i].gameObject.transform.position;
 						stopMove = true;
                     }
                 }
@@ -86,7 +104,7 @@ public class Monster : CanBeAttack
             i++;
         }
 		float step = speed * Time.deltaTime;
-        if (target)
-        gameObject.transform.position = Vector2.MoveTowards(oldPosition, target.transform.position, step);
+        if (!isSearch)
+        gameObject.transform.position = Vector2.MoveTowards(oldPosition, target, step);
 	}
 }

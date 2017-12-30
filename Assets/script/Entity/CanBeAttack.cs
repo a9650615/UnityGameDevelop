@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Game;
 using Game.Entity;
 
 public static class RendererExtensions
@@ -61,6 +62,7 @@ public class CanBeAttack : MonoBehaviour
 
         if (hp <= 0 && GetName() != "Player")
         {
+            GameCore.GetSystem<CreatorSystem>().RemoveByInstantId(GetName(), gameObject);
             Destroy(gameObject);
             _bar.Remove();
             _bar = null;
