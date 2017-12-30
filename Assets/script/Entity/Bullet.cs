@@ -5,7 +5,7 @@ namespace Game.Entity
 {
 	public class Bullet : MonoBehaviour
 	{
-        public int attack = 10;
+        public int attack = 30;
         public bool isFromTower = false;
         public void OnTriggerStay2D(Collider2D collision)
         {
